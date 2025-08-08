@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💀 Hck The Bowx | Execute Command</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>💀 Execute Command on {{ name }} 💀</h1>
+    
+    <form action="{{ url_for('execute', agentname=name) }}" method="POST">
+        <input type="text" name="command" placeholder="Enter Command" required>
+        <button type="submit">Run</button>
+    </form>
+
+    {% if cmdoutput %}
+    <div class="output">
+        <h3>Output:</h3>
+        <pre>{{ cmdoutput }}</pre>
+    </div>
+    {% endif %}
+</body>

