@@ -1,4 +1,4 @@
-# C2C Project
+# Command and Control (C2)
 
 Python-based Command and Control (C2) system with a web dashboard.
 
